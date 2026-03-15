@@ -12,6 +12,7 @@ function startFallbackServer() {
     '/home': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Home Dashboard</h1><p>Hero + Live Sessions + Courses + Placement Achievements preview.</p></body></html>`,
     '/placements': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Placements Job Board</h1><p>Job cards with drawer preview.</p></body></html>`,
     '/compiler': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Code Compiler</h1><p>Split editor + output terminal with language selector preview.</p></body></html>`,
+    '/resume/create': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Resume Generator</h1><p>Multi-step form + real-time PDF-style preview.</p></body></html>`,
   };
   const server = http.createServer((req, res) => {
     if (req.url === '/health') {

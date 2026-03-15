@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev.js",
     "build": "next build",
     "start": "next start",
     "dev:api": "node src/index.js",

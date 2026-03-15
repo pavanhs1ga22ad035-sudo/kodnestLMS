@@ -1,5 +1,0 @@
-# Avoid recurring PR conflicts in local dev fallback script.
-scripts/dev.js merge=ours
-
-# Route-preview catalog can safely union additions from both branches.
-scripts/dev-pages.js merge=union

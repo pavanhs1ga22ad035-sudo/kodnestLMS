@@ -5,6 +5,10 @@ const prisma = require('../config/prisma');
 const SALT_ROUNDS = 12;
 
 function signToken(user) {
+  if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not configured');
+  }
+
   return jwt.sign(
     {
       sub: user.id,

@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const placementRoutes = require('./routes/placementRoutes');
+const compilerRoutes = require('./routes/compilerRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/placements', placementRoutes);
+app.use('/api/compiler', compilerRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

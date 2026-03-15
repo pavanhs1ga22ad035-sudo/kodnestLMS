@@ -11,6 +11,7 @@ function startFallbackServer() {
     '/': '<html><body style="font-family:sans-serif;padding:20px"><h1>KodNest Dev Preview</h1><p>Open <a href="/home">/home</a>, <a href="/placements">/placements</a>, or a course player route like <a href="/my-learning/class/demo">/my-learning/class/demo</a>.</p></body></html>',
     '/home': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Home Dashboard</h1><p>Hero + Live Sessions + Courses + Placement Achievements preview.</p></body></html>`,
     '/placements': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Placements Job Board</h1><p>Job cards with drawer preview.</p></body></html>`,
+    '/compiler': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Code Compiler</h1><p>Split editor + output terminal with language selector preview.</p></body></html>`,
   };
   const server = http.createServer((req, res) => {
     if (req.url === '/health') {

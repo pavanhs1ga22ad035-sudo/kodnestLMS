@@ -1,8 +1,13 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 const prisma = require('../config/prisma');
 
 const SALT_ROUNDS = 12;
+
+function normalizeEmail(email) {
+  return String(email).trim().toLowerCase();
+}
 
 function signToken(user) {
   if (!process.env.JWT_SECRET) {
@@ -57,7 +62,7 @@ async function register(req, res) {
       });
     }
 
-    const normalizedEmail = String(email).trim().toLowerCase();
+    const normalizedEmail = normalizeEmail(email);
 
     const existingUser = await prisma.user.findUnique({
       where: { email: normalizedEmail },
@@ -114,7 +119,7 @@ async function login(req, res) {
       });
     }
 
-    const normalizedEmail = String(email).trim().toLowerCase();
+    const normalizedEmail = normalizeEmail(email);
 
     const user = await prisma.user.findUnique({
       where: { email: normalizedEmail },

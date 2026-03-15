@@ -7,8 +7,9 @@ const port = Number(process.env.PORT) || 3000;
 const localNextBin = path.join(process.cwd(), 'node_modules', '.bin', process.platform === 'win32' ? 'next.cmd' : 'next');
 
 function startFallbackServer() {
+  // Conflict-safe: keep all preview routes in one map to avoid divergent branch edits.
   const pages = {
-    '/': '<html><body style="font-family:sans-serif;padding:20px"><h1>KodNest Dev Preview</h1><p>Open <a href="/home">/home</a>, <a href="/placements">/placements</a>, or a course player route like <a href="/my-learning/class/demo">/my-learning/class/demo</a>.</p></body></html>',
+    '/': '<html><body style="font-family:sans-serif;padding:20px"><h1>KodNest Dev Preview</h1><p>Open <a href="/home">/home</a>, <a href="/courses">/courses</a>, <a href="/practice">/practice</a>, <a href="/community">/community</a>, <a href="/placements">/placements</a>, <a href="/compiler">/compiler</a>, <a href="/resume/create">/resume/create</a>, <a href="/brokod">/brokod</a>, or a course player route like <a href="/my-learning/class/demo">/my-learning/class/demo</a>.</p></body></html>',
     '/home': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Home Dashboard</h1><p>Hero + Live Sessions + Courses + Placement Achievements preview.</p></body></html>`,
     '/courses': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Courses</h1><p>Courses listing preview.</p></body></html>`,
     '/practice': `<!doctype html><html><body style="font-family:sans-serif;padding:20px;background:#f3f4f6"><h1>Practice</h1><p>Practice workspace preview.</p></body></html>`,
